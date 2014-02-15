@@ -9,6 +9,7 @@ class ElectronicsManager
 
   def start
     puts 'start manager'
+    Process.daemon
     loop do
       queue.poll(idle_timeout: 60) do |message|
         ray_number = commands[message.body]
