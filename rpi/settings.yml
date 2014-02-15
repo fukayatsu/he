@@ -1,0 +1,16 @@
+iremocon:
+  address: 10.0.1.55
+  commands:
+    'lights:off'   : 1
+    'lights:on'    : 2
+    'lights:down'  : 3
+    'lights:up'    : 4
+    'lights:min'   : 5
+    'lights:max'   : 6
+    'lights:warm'  : 7
+    'lights:white' : 8
+    'air:off'      : 11
+    'air:cool'     : 12
+    'air:heat'     : 22
+    'heater:off'   : 31
+    'heater:on'    : 32

@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+command = ARGV[0]
+unless command
+  puts "usage:"
+  puts "    ./sqs_test lights:on"
+  puts "    ./sqs_test lights:off"
+  exit
+end
+
+require 'aws-sdk'
+require 'dotenv'; Dotenv.load!
+
+AWS.config(
+  access_key_id:     ENV['AWS_ID'],
+  secret_access_key: ENV['AWS_SECRET'],
+  region:            ENV['AWS_REGION']
+)
+queue = AWS::SQS.new.queues[ENV['SQS_URL']]
+queue.send_message(command)
