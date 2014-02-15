@@ -1,0 +1,24 @@
+{
+  "name": "fukayatsu room controller 2",
+  "short_name": "FRC",
+  "description": "fukayatsu room controller 2",
+  "version": "0.0.1",
+  "app": {
+    "background": {
+      "scripts": [
+        "lib/jquery-2.0.3.min.js",
+        "js/background.js"
+      ]
+    }
+  },
+  "permissions": [
+    "storage",
+    "notifications",
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "image/icon_16.png",
+    "128": "image/icon_128.png"
+  },
+  "offline_enabled": true
+}

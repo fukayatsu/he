@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>room controller</title>
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/window.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Room Controller</h1>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+        <li><a href="#settings" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Air Heating</h3>
+                </div>
+                <div class="panel-body">
+                  <button type="button" class="btn btn-danger" data-remote="air:heat">HEAT</button>
+                  <!-- <button type="button" class="btn btn-danger" data-remote="air:cool">COOL</button> -->
+                  <button type="button" class="btn btn-default" data-remote="air:off">OFF</button>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Heating Pad</h3>
+                </div>
+                <div class="panel-body">
+                  <button type="button" class="btn btn-danger" data-remote="heater:on">ON</button>
+                  <button type="button" class="btn btn-default" data-remote="heater:off">OFF</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-7">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Lights</h3>
+                </div>
+                <div class="panel-body">
+                  <div>
+                    <button type="button" class="btn btn-danger" data-remote="lights:on">ON</button>
+                    <button type="button" class="btn btn-default" data-remote="lights:off">OFF</button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default" data-remote="lights:up"><span class="glyphicon glyphicon-chevron-up"></span></button>
+                    <button type="button" class="btn btn-default" data-remote="lights:down"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default" data-remote="lights:max">max</button>
+                    <button type="button" class="btn btn-default" data-remote="lights:min">min</button>
+                    <button type="button" class="btn btn-default" data-remote="lights:white">white</button>
+                    <button type="button" class="btn btn-default" data-remote="lights:warm">warm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="settings">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">HipChat</h3>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="api_endpoint" class="col-xs-3 control-label">api_endpoint</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="api_endpoint" placeholder="api_endpoint">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="username" class="col-xs-3 control-label">username</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="username" placeholder="username">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="col-xs-3 control-label">password</label>
+                  <div class="col-xs-9">
+                    <input type="password" class="form-control" id="password" placeholder="password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-offset-3 col-xs-9">
+                    <button type="submit" class="btn btn-primary" id="save_settings">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="alert" class="alert alert-success fade">
+        <p id="alert_message"></p>
+      </div>
+    </div>
+    <script src="/lib/jquery-2.0.3.min.js"></script>
+    <script src="/js/window.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

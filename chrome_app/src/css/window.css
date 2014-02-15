@@ -1,0 +1,13 @@
+.container {
+  margin-bottom: 100px;
+  /*padding: 20px;*/
+  padding: 0 20 20 20;
+}
+
+.tab-content {
+  padding-top: 20px;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
