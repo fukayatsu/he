@@ -15,9 +15,12 @@ class CalendarWatcher
     commands = {}
     events.each do |event|
       device, command = event.summary.split(':')
-      if time_range.cover?(event.start.date_time)
-        commands[device] = command
-      elsif time_range.cover?(event.end.date_time)
+      start_at = fix_time(event.start.date_time)
+      end_at   = fix_time(event.end.date_time)
+
+      if time_range.cover?(start_at)
+        next commands[device] = command
+      elsif time_range.cover?(end_at)
         commands[device] ||= 'off'
       end
     end
@@ -30,6 +33,15 @@ class CalendarWatcher
   end
 
 private
+
+  # google calendarのdatetimeは前日の日付で予定を返してくる事がある?
+  # 特に繰り返し予定のときに多い
+  def fix_time(google_calendar_date_time)
+    Time.now.change(
+      hour: google_calendar_date_time.hour,
+      min:  google_calendar_date_time.min
+    )
+  end
 
   def queue
     @queue ||= AWS::SQS.new(
