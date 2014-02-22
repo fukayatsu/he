@@ -8,9 +8,3 @@ namespace :calendar do
   end
 end
 
-namespace :manager do
-  desc 'start manager'
-  task :start do
-    ElectronicsManager.new.start
-  end
-end

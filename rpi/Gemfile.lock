@@ -19,6 +19,7 @@ GEM
       uuidtools (~> 2.1)
     chronic (0.10.2)
     coderay (1.1.0)
+    daemon-spawn (0.4.2)
     dotenv (0.9.0)
     extlib (0.9.16)
     faraday (0.9.0)
@@ -74,6 +75,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   aws-sdk
+  daemon-spawn
   dotenv
   google-api-client
   iremocon

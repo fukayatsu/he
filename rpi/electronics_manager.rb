@@ -1,15 +1,16 @@
 require 'yaml'
 require 'iremocon'
+require 'daemon_spawn'
+require 'aws-sdk'
+require 'dotenv'; Dotenv.load!
+require 'active_support/all'
 
-class ElectronicsManager
-  def initialize
+class ElectronicsManager < DaemonSpawn::Base
+  def start(args)
     @settings = YAML.load_file('settings.yml')
     @iremocon = Iremocon.new(@settings['iremocon']['address'])
-  end
 
-  def start
     puts 'start manager'
-    Process.daemon
     loop do
       queue.poll(idle_timeout: 60) do |message|
         ray_number = commands[message.body]
@@ -23,6 +24,9 @@ class ElectronicsManager
       @iremocon.au # keep alive
     end
   end
+
+  def stop
+  end 
 
 private
 
@@ -38,3 +42,11 @@ private
     ).queues[ENV['SQS_URL']]
   end
 end
+
+ElectronicsManager.spawn!({
+  working_dir: __dir__, 
+  pid_file:    File.expand_path(__dir__ + '/tmp/manager.pid'),
+  log_file:    File.expand_path(__dir__ + '/log/manager.log'),
+  sync_log:    true,
+  singleton:   true 
+})
