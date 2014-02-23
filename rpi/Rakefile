@@ -1,5 +1,4 @@
 require './calendar_watcher'
-require './electronics_manager'
 
 namespace :calendar do
   desc "fetch calendar and add events to queue"
