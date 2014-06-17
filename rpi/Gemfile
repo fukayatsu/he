@@ -8,3 +8,5 @@ gem 'aws-sdk'
 gem 'whenever'
 gem 'rake'
 gem 'iremocon'
+gem 'daemon-spawn'
+
